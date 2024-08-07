@@ -14,7 +14,7 @@ This project is a web-based book store system developed using HTML, CSS, JavaScr
 ## Installation
 
 1. **Clone the repository**:
-git clone https://github.com/Shubham0202/book_store.git
+git clone https://github.com/nilam-pawar02/Book-store-management-System
 
 2. **Import the Database**:
 
