@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,500;0,600;0,700;1,400&display=swap');
+
+$logo-w-h: 60px;
+$desk-logo-w-h: 144px;
+*{
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+.bg-custom-gray{
+    background: #dedee8;;
+}
+.n-z-index{
+    z-index: -1!important;
+}
+.p-z-index{
+    z-index: 1!important;
+}
+.custom-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap: 1em;
+}
+.scrollbar-hidden::-webkit-scrollbar{
+    display: none;
+}
+.custom-scroller-bg{
+    background: #dedee825;
+    box-shadow: inset 0px 4px 13px ;
+}
+.logo{
+   & .logo-size{
+        width: $logo-w-h;
+        height: $logo-w-h;
+    }
+}
+.aside-container{
+    height: calc(100vh - 2em - $logo-w-h);
+}
+.desk-aside-container{
+    height: calc(100vh - 2em - $desk-logo-w-h);
+}
+// button bounce apply for all buttons 
+.button-bounce{
+    animation: bounce 100ms linear 1;
+    background: green;
+}
+@keyframes bounce{
+    0%{
+        scale: .95;
+    }
+    25%{
+        scale: .90;
+    }
+    100%{
+        scale: 1;
+    }
+}
+.custom-bg-white{
+    background: #ffffffcb!important;
+}
+.disable-select{
+    user-select: none;
+}
+// remove up and down arrows in input type[number]
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type='number'] {
+    appearance: textfield;
+    -moz-appearance: textfield;
+}

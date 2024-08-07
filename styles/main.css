@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,500;0,600;0,700;1,400&display=swap");
+* {
+  font-family: "IBM Plex Sans", sans-serif;
+}
+
+.bg-custom-gray {
+  background: #dedee8;
+}
+
+.n-z-index {
+  z-index: -1 !important;
+}
+
+.p-z-index {
+  z-index: 1 !important;
+}
+
+.custom-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1em;
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+
+.custom-scroller-bg {
+  background: rgba(222, 222, 232, 0.1450980392);
+  box-shadow: inset 0px 4px 13px;
+}
+
+.logo .logo-size {
+  width: 60px;
+  height: 60px;
+}
+
+.aside-container {
+  height: calc(100vh - 2em - 60px);
+}
+
+.desk-aside-container {
+  height: calc(100vh - 2em - 144px);
+}
+
+.button-bounce {
+  animation: bounce 100ms linear 1;
+  background: green;
+}
+
+@keyframes bounce {
+  0% {
+    scale: 0.95;
+  }
+  25% {
+    scale: 0.9;
+  }
+  100% {
+    scale: 1;
+  }
+}
+.custom-bg-white {
+  background: rgba(255, 255, 255, 0.7960784314) !important;
+}
+
+.disable-select {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -webkit-appearance: textfield;
+          appearance: textfield;
+  -moz-appearance: textfield;
+}/*# sourceMappingURL=main.css.map */

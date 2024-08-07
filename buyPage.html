@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Store</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="shortcut icon" href="assets/logo/logo.jpg" type="image/x-icon">
+</head>
+<body>
+    <!--  -->
+    <div class="bg-gray-100 lg:flex">
+    <!-- navigations mobile -->
+    <div class=" lg:hidden flex justify-between px-5 py-3 bg-white z-10">
+        <i id="hammer" class="hover:bg-gray-100 text-xl w-12 h-12 rounded-md p-2" data-feather="menu"></i>
+        <img class="w-16 h-12 rounded-lg" src="assets/logo/logo.jpg" alt="">
+    <i id="search-tg" class="hover:bg-gray-100 text-xl w-12 h-12 rounded-full p-2" data-feather="search"></i>    
+    </div>
+
+    <!-- aside mobile -->
+    <div id="aside-slider" class="hidden absolute top-0 z-20 w-full transition-all">
+        <div class="lg:hidden flex items-start justify-between px-2 gap-3 bg-white">
+            <div class="desktop-aside w-60 h-[calc(100dvh)] flex flex-col items-start justify-between">
+                <div class="aside mt-8 w-full">
+                    <!-- write a javascript for if bg-black contains class then remove hover of that element -->
+                    <a href="#" class="block cursor-default flex items-center gap-4 text-white bg-black rounded-lg py-3 px-4">
+                        <i data-feather="home"></i>
+                        <p class="capitalize">home</p>
+                    </a>
+                    <a href="#" class="cursor-default flex items-center gap-4 rounded-lg py-3 px-4 mt-4 hover:bg-slate-100">
+                        <i data-feather="heart"></i>
+                        <p class="capitalize">favourite</p>
+                    </a>
+                    <a href="all_authors.html" class="cursor-default flex items-center gap-4 rounded-lg py-3 px-4 mt-4 hover:bg-slate-100">
+                        <i data-feather="users"></i>
+                        <p class="capitalize">authors</p>
+                    </a>
+                    <a href="#" class="cursor-default flex items-center gap-4 rounded-lg py-3 px-4 mt-4 hover:bg-slate-100">
+                        <i data-feather="shopping-bag"></i>
+                        <p class="capitalize">orders</p>
+                    </a>
+                    <a href="#" class="cursor-default flex items-center gap-4 rounded-lg py-3 px-4 mt-4 hover:bg-slate-100">
+                        <i data-feather="settings"></i>
+                        <p class="capitalize">settings</p>
+                    </a>
+                </div>
+                <!-- logout and account -->
+                <div class="pf-lg w-full">
+                    <!-- if user not signed in then replace this logout to sign in using php session -->
+                    <a href="auth/user_profile.html" class="cursor-default flex items-center gap-4 rounded-lg py-3 px-4 mb-1 w-full hover:bg-slate-100">
+                        <i data-feather="user"></i>
+                        <p class="capitalize line-clamp-1">shubham chandgude</p>
+                    </a>
+                    <a class="cursor-default flex items-center gap-4 rounded-lg py-3 px-4 mb-4 w-full hover:bg-slate-100">
+                        <i data-feather="log-out"></i>
+                        <p class="capitalize">log out</p>
+                    </a>
+                </div>
+
+            </div>
+            <div class="cross-aside p-2 mt-6 bg-gray-100 rounded-full">
+                <i id="close-aside" class="w-8 h-8" data-feather="x"></i>
+            </div>
+        </div>
+    </div>
+    <!-- aside end -->
+
+    <!-- navigation desktop -->
+    <div class="hidden lg:block py-4 px-8 bg-white">
+        <div class="logo">
+            <img class="logo-size rounded" src="assets/logo/logo.jpg" alt="">
+        </div>
+
+        <div class="aside-container  flex flex-col items-start justify-between ">
+        <div class="aside mt-8">
+            <!-- write a javascript for if bg-black contains class then remove hover of that element -->
+            <a href="#" class="flex items-center gap-4 text-white bg-black rounded-lg py-2 px-4">
+                <i data-feather="home"></i>
+                <p class="capitalize">home</p>
+            </a>
+            <a href="#" class="flex items-center gap-4 rounded-lg py-2 px-4 mt-5 hover:bg-slate-50">
+                <i data-feather="heart"></i>
+                <p class="capitalize">favourite</p>
+            </a>
+            <a href="#" class="flex items-center gap-4 rounded-lg py-2 px-4 mt-5 hover:bg-slate-50">
+                <i data-feather="bookmark"></i>
+                <p class="capitalize">collection</p>
+            </a>
+            <a href="#" class="flex items-center gap-4 rounded-lg py-2 px-4 mt-5 hover:bg-slate-50">
+                <i data-feather="shopping-bag"></i>
+                <p class="capitalize">orders</p>
+            </a>
+            <a href="#" class="flex items-center gap-4 rounded-lg py-2 px-4 mt-5 hover:bg-slate-50">
+                <i data-feather="settings"></i>
+                <p class="capitalize">settings</p>
+            </a>
+        </div>
+        <!-- logout -->
+        <!-- if user not signed in then replace this logout to sign in using php session -->
+        <div class="cursor-pointer flex items-center gap-4 rounded-lg py-2 px-4 mt-5 hover:bg-slate-50">
+            <i data-feather="log-out"></i>
+            <p class="capitalize">log out</p>
+        </div>
+    </div>
+
+    </div>
+    <!-- navigation end Desktop -->
+    <!-- book infomation -->
+    <!-- main -->
+    <div class=" book-info mx-4 lg:h-screen lg:overflow-y-scroll lg:w-full scrollbar-hidden">
+       <!-- search bar -->
+        <div class="search-container py-4 flex items-center justify-between">
+            <!-- onclick replace hidden class and flex -->
+            <div id="search-bar" class="hidden lg:flex items-center bg-white w-fit rounded-lg shadow">
+                <input class=" placeholder:capitalize px-4 py-2 bg-transparent outline-none sm:w-96 w-[77vw] capitalize" type="text" placeholder="search book">
+                <div class="p-3 sm:cursor-pointer cursor-default">
+                    <i data-feather="search"></i>
+                </div>
+            </div>
+            <div class="hidden lg:block cursor-pointer capitalize px-7 py-3 shadow rounded-md w-fit hover:bg-gray-50 transition">
+                <i data-feather="shopping-cart"></i>
+            </div>
+        </div>
+        <div class="flex flex-col p-4 mb-4 shadow bg-white rounded lg:flex-row lg:gap-4">
+            <div class="lg:hidden flex items-end justify-between mb-2 ">
+                <p></p>
+                <p class="share-button capitalize px-7 py-3 shadow shadow-gray-50 rounded-md w-fit hover:bg-gray-50 transition"><i data-feather="share-2"></i></p>
+            </div>
+            <img class="w-52 h-66 rounded self-center" src="assets/books/harry.jpg" alt="">
+            <div class="book-basic">
+                <h2 class="book-title capitalize text-2xl my-1">harry potter and the deathly hallows</h2>
+                <p class="price text-3xl underline mb-4 font-bold">₹ 300</p>
+                <div class="author-info">
+                    <div class="flex items-center gap-2">
+                        <img class="w-10 h-10 rounded-full object-cover" src="assets/avtar/sample_img.jpg" alt="">
+                        <div class="auth-name">
+                            <p class="capitalize font-semibold text-lg">j.k.rolling</p>
+                            <p class="capitalize">12 publications</p>
+                        </div>
+                    </div>
+                    <div class="ratting-stars flex items-center gap-2 mt-4">
+                        <i data-feather="star" class="bg-amber-500 rounded-full"></i>
+                        <i data-feather="star" class="bg-amber-500 rounded-full"></i>
+                        <i data-feather="star" class="bg-amber-500 rounded-full"></i>
+                        <i data-feather="star" class="bg-gradient-to-r from-amber-500 from-50% via-white via-50% rounded-full"></i>
+                        <p class="out-of">4.5/5</p>
+                    </div>
+                </div>
+                <!-- buy & add to favourite  for desktop-->
+                <div class="hidden mt-4 lg:block ">
+                    <a href="#" class="block capitalize px-7 py-3 bg-black text-white shadow rounded-md mb-3 w-60 hover:bg-gray-800 transition">buy now</a>
+                    <a href="#" class="block capitalize px-6 py-3 bg-transparent rounded-md flex items-center gap-1 border-2 mb-3 w-60 hover:bg-gray-50"><i data-feather="heart"></i> favourite</a>
+                    <div class="flex items-center gap-4">
+                        <p class="cursor-pointer capitalize px-7 py-3 shadow rounded-md w-fit hover:bg-gray-50 transition"><i data-feather="share-2"></i></p>
+                        <a href="#" class="block capitalize px-7 py-3 shadow rounded-md w-fit hover:bg-gray-50 transition"><i data-feather="shopping-cart"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- book about -->
+        <div class="about-book lg:flex items-start gap-4 lg:bg-white lg:rounded lg:shadow">
+            <div class="about-info bg-white rounded p-4 shadow lg:shadow-none">
+                <h3 class="about-title capitalize text-xl font-semibold">about</h3>
+                <p class="font-thin mb-2 lg:w-80">The book is about 11 year old Harry Potter, who receives a letter saying that he is invited to attend Hogwarts, school of witchcraft and wizardry. He then learns that a powerful wizard and his minions are after the sorcerer's stone that will make this evil wizard immortal and undefeatable.</p>
+                <div class="">
+                    <!-- current book genere -->
+                    <h3 class="about-title capitalize text-xl font-semibold mb-2">genere</h3>
+
+                    <div class="flex items-center flex-wrap gap-2 justify-center">
+                        <p class="capitalize border-2 border-gray-200 rounded-md p-2">fantacy</p>
+                        <p class="capitalize border-2 border-gray-200 rounded-md p-2">adventure</p>
+                        <p class="capitalize border-2 border-gray-200 rounded-md p-2">magic</p>
+                    </div>
+                </div>
+
+                <!-- book language and more disciption -->
+                <div class="mt-4">
+                    <h3 class="about-title capitalize text-xl font-semibold">book language</h3>
+                    <div class="flex items-center gap-2 flex-wrap">
+                        <p class="capitalize shadow w-fit px-4 py-2 rounded">english,hindi,sanskrit</p>
+                       </div>
+                    
+                </div>
+            </div>
+            <div class="you-may-also-like my-4 lg:my-0 bg-white rounded-md shadow p-4 lg:shadow-none">
+                <!-- realted book filter by genere -->
+                <h3 class="capitalize text-xl font-semibold">you may also like</h3>
+                <div class="flex flex-wrap items-center justify-center gap-4 mt-4 lg:justify-start">
+                    <a href="#" class="w-32 cursor-default sm:cursor-pointer">
+                        <img class="h-18 rounded" src="assets/books/sampl_img3jpg.jpg" alt="">
+                        <h3 class="line-clamp-2">harry potter Lorem ipsum dolor sit amet.</h3>
+                        <p class="font-semibold text-green-500">₹99</p>
+                    </a>
+                    <a href="#" class="w-32 cursor-default sm:cursor-pointer">
+                        <img class="w-full h-18 rounded-md shrink-0" src="assets/books/book_sample.avif" alt="">
+                        <h3 class="line-clamp-2">harry potter Lorem ipsum dolor sit amet.</h3>
+                        <p class="font-semibold text-green-500">₹99</p>
+                    </a>
+                    <a href="#" class="w-32 cursor-default sm:cursor-pointer">
+                        <img class="w-full h-18 rounded-md" src="assets/books/sampl_img4.png" alt="">
+                        <h3 class="line-clamp-2">harry potter Lorem ipsum dolor sit amet.</h3>
+                        <p class="font-semibold text-green-500">₹99</p>
+                    </a>
+                    <a href="#" class="w-32 cursor-default sm:cursor-pointer">
+                        <img class="w-full h-18 rounded-md" src="assets/books/sampl_img2.jpg" alt="">
+                        <h3 class="line-clamp-2">harry potter Lorem ipsum dolor sit amet.</h3>
+                        <p class="font-semibold text-green-500">₹99</p>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+        <!-- for mobile -->
+    </div>
+    <div class="flex items-center justify-center gap-2 py-3 mt-4 sticky bottom-0 bg-white lg:hidden">
+        <a href="#" class="block cursor-default transition-all capitalize px-7 py-3 shadow rounded-md"><i data-feather="shopping-cart"></i></a>
+        <a href="#" class="block cursor-default focus:scale-90 hover:border-black transition-all capitalize px-5 py-2 bg-transparent rounded-md flex items-center border-2"><i data-feather="bookmark"></i> favourite</a>
+        <a href="#" class="block cursor-default focus:scale-90 transition-all capitalize px-10 py-3 bg-black text-white shadow rounded-md">buy</a>
+    </div>
+    </div>
+</body>
+<script>
+    feather.replace();
+  </script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.3/gsap.min.js" integrity="sha512-7Au1ULjlT8PP1Ygs6mDZh9NuQD0A5prSrAUiPHMXpU6g3UMd8qesVnhug5X4RoDr35x5upNpx0A6Sisz1LSTXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.3/ScrollTrigger.min.js" integrity="sha512-LQQDtPAueBcmGXKdOBcMkrhrtqM7xR2bVrnMtYZ8ImAZhFlIb5xrMqQ6uZviyeSB+4mYj89ta8niiCIQM1Gj0w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+   <script src="scripts/hammer.js"></script>
+   <script src="scripts/searchToggle.js"></script>
+   <script src="scripts/stickyNav.js"></script>
+   <script src="scripts/shareButton.js"></script>
+</html>
